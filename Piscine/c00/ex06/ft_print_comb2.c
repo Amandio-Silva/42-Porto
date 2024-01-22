@@ -3,52 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <kfaustin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 10:30:10 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/22 18:51:45 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/19 11:22:47 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/19 11:30:09 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c);
-void	printavs(void);
-void	ft_print_comb2(void);
-
 void	ft_putchar(char c)
 {
-	write (1, &c, 1);
-}
-
-void	printavs(void)
-{
-	ft_putchar(',');
-	ft_putchar(' ');
+	write(1, &c, 1);
 }
 
 void	ft_print_comb2(void)
 {
-	int	a;
-	int	b;
+	int	i;
+	int	j;
 
-	a = 0;
-	while (a < 100)
+	i = -1;
+	while (++i < 99)
 	{
-		b = a + 1;
-		while (b < 100)
+		j = i;
+		while (++j < 100)
 		{
-			ft_putchar(a / 10 + '0');
-			ft_putchar(a % 10 + '0');
+			ft_putchar((i / 10) + 48);
+			ft_putchar((i % 10) + 48);
 			ft_putchar(' ');
-			ft_putchar(b / 10 + '0');
-			ft_putchar(b % 10 + '0');
-			if (a / 10 != 9 || a % 10 != 8)
-			{
-				printavs();
-			}
-			b++;
+			ft_putchar((j / 10) + 48);
+			ft_putchar((j % 10) + 48);
+			if (i < 98)
+				write(1, ", ", 2);
 		}
-		a++;
 	}
 }
+
+/*int	main(void)
+{
+	ft_print_comb2();
+}*/

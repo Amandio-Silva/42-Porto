@@ -3,26 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 16:34:11 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/28 14:05:43 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/25 07:47:06 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/25 09:58:17 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
+#include <stdio.h>
+
+unsigned int	ft_strlen(char *str)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
 
 	i = 0;
-	size -= 1;
-	while (src[i] && (i < size))
+	if (size > 0)
 	{
-		dest[i] = src[i];
-		i++;
+		while (src[i] != '\0' && (size - 1) > i)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	dest[i] = '\0';
-	return (i);
+	return (ft_strlen(src));
 }
+
+/*int	main(void)
+{
+	char	src[] = "love";
+	char	dest[] = "joao";
+	unsigned int	size = 6;
+
+	printf("Src: %s , Src size: %d \n, src, ft_strlcpy(dest, src, size));
+}*/

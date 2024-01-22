@@ -3,53 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 10:05:16 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/10 13:55:46 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/08/09 07:59:41 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/08/09 08:14:36 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
-	int	*temp;
+	int	*matrix;
 	int	i;
 
 	if (min >= max)
 	{
+		*range = NULL;
 		return (0);
 	}
-	temp = (int *)malloc((max - min) * sizeof(int));
-	if (!temp)
+	matrix = malloc(sizeof(int) * (max - min));
+	if (!matrix)
 		return (-1);
 	i = 0;
 	while (min < max)
 	{
-		temp[i] = min;
-		min++;
+		matrix[i] = min;
 		i++;
+		min++;
 	}
-	*range = temp;
+	*range = matrix;
 	return (i);
 }
-/*
-#include<stdio.h>
-int main()
+
+/*int	main(void)
 {
-	int	**arr;
-	int	*arr2;
-	int	i = 0;
-	arr = &arr2;
-	printf("%d \n", ft_ultimate_range(arr, 0, 10));
-	
-	while (i < 10)
+	int	min;
+	int	max;
+	int	*tab;
+	int	i;
+	int	size;
+
+	i = 0;
+	min = 0;
+	max = 5;
+	size = ft_ultimate_range(&tab ,min, max);
+	printf("Tamanho: %d\n", size);
+	while (i < size)
 	{
-		printf("%d ", arr2[i]);
+		printf("%d", tab[i]);
 		i++;
 	}
-	printf("\n cabou");
-	return 0;
-}
-*/
+	return (0);
+}*/

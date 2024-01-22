@@ -3,43 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 13:28:13 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/02 13:29:30 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/31 15:45:39 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/08/07 14:40:54 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_power(int nb, int power);
+#include <stdio.h>
 
 int	ft_iterative_power(int nb, int power)
 {
-	double	resultado;
+	int	res;
 
-	resultado = nb;
 	if (power < 0)
 		return (0);
-	else if (power == 0)
+	if (power == 0)
 		return (1);
-	while (--power)
+	res = 1;
+	while (0 < power)
 	{
-		resultado *= nb;
-		if (resultado < -2147483648 || resultado > 2147483647)
-		{
-			return (0);
-		}
+		res = res * nb;
+		power--;
 	}
-	return (resultado);
+	return (res);
 }
-/*
-#include<stdio.h>
-int	main(void)
+
+/*int	main(void)
 {
-	printf("(2, 31)%d \n", ft_iterative_power(2,31));
-	printf("(0, 0) %d \n", ft_iterative_power(0, 0));
-	printf("(0, 1) %d \n", ft_iterative_power(0, 1));
-	printf("(-2, 31) %d \n", ft_iterative_power(-2, 31));
-	printf("(-2, 30 )%d \n", ft_iterative_power(-2, 30));
-	return (0);
-}
-*/
+	printf("power de 4 ^ 2: %d\n", ft_iterative_power(4, 2));
+	printf("power de 3 ^ 2: %d\n", ft_iterative_power(3, 2));
+	printf("power de 2 ^ 4: %d\n", ft_iterative_power(2, 4));
+	printf("power de 5 ^ 2: %d\n", ft_iterative_power(5, 2));
+}*/

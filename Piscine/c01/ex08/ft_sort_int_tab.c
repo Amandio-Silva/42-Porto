@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/24 12:51:36 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/24 18:45:30 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/20 11:19:01 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/20 11:35:40 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	swap(int *a, int *b)
+#include <stdio.h>
+
+void	ft_swap(int *a, int *b)
 {
 	int	temp;
 
@@ -22,18 +24,32 @@ void	swap(int *a, int *b)
 void	ft_sort_int_tab(int *tab, int size)
 {
 	int	i;
-	int	j;
 
-	i = 0;
-	while (i < size)
+	while ((size - 1) > 0)
 	{
-		j = 0;
-		while (j < size - i - 1)
+		i = 0;
+		while ((size - 1) > i)
 		{
-			if (tab[j] > tab[j + 1])
-				swap(&tab[j], &tab[j + 1]);
-			j++;
+			if (tab[i] > tab[i + 1])
+			{
+				ft_swap(&tab[i], &tab[i + 1]);
+			}
+			i++;
 		}
-		i++;
+		size--;
 	}
 }
+
+/*int	main(void)
+{
+	int	tab[] = {4, 3, 2, 1, 0};
+	int	size = 5;
+	int	i = 0;
+	
+	ft_sort_int_tab(tab, size);
+	while (i < size)
+	{
+		printf("%d", tab[i]);
+		i++;
+	}
+}*/

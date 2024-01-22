@@ -3,31 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 18:01:31 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/04 13:04:56 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/31 08:39:06 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/31 08:41:53 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 
-int	main(int argc, char **argv)
+void	ft_putstr(char *str)
 {
 	int	i;
-	int	j;
 
-	i = argc - 1;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+
+int	main(int ac, char **av)
+{
+	int	i;
+
+	i = ac - 1;
 	while (i > 0)
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			write (1, &argv[i][j], 1);
-			j++;
-		}
-		write (1, "\n", 1);
+		ft_putstr(av[i]);
 		i--;
+		write(1, "\n", 1);
 	}
-	return (0);
 }

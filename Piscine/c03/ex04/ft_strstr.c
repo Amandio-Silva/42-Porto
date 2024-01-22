@@ -3,41 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 13:08:45 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/01 13:20:08 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/27 09:57:52 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/31 10:52:36 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
 	int	j;
 
-	j = 0;
 	i = 0;
-	if (to_find[j] == '\0')
+	if (*to_find == '\0')
+	{
 		return (str);
+	}
 	while (str[i] != '\0')
 	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
-			j++;
-		if (to_find[j] == '\0')
-			return (str + i);
-		i++;
 		j = 0;
+		if (str[i] == to_find[j])
+		{
+			while (str[i + j] == to_find[j])
+			{
+				j++;
+				if (!to_find[j])
+					return (&str[i]);
+			}
+		}
+		i++;
 	}
 	return (0);
 }
-/*
-#include<stdio.h>
-int	main(void)
-{
-	char *str = "asudhuqwhuiehquihwiueqhwieiuiuhvacasjjakjklasjd";
-	char *find = "vacas";
 
-	printf("%s", ft_strstr(str, find));
-	return (0);
-}
-*/
+/*int	main(void)
+{
+	char	str[] = "o samueL o joao, o samuel e matador sao muito lindos";
+	char	to_find[] = "samuel";
+
+	printf("%s \n", ft_strstr(str, to_find));
+}*/

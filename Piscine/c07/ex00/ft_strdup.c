@@ -3,44 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 11:49:34 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/10 13:34:28 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/08/08 09:27:10 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/08/08 11:30:15 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 char	*ft_strdup(char *src)
 {
-	int		i;
-	char	*strcp;
+	int	i;
+	int	len;
+	char	*dest;
 
-	i = 0;
-	while (src[i])
+	len = 0;
+	while (src[len])
 	{
+		len++;
+	}
+	dest = (char *)malloc(sizeof(char) * (len + 1));
+	if (dest == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		dest[i] = src[i];
 		i++;
 	}
-	strcp = (char *)malloc(sizeof(char) * (i + 1));
-	if (!strcp)
-		return (0);
-	i = 0;
-	while (src[i])
-	{
-		strcp[i] = src[i];
-		i++;
-	}
-	strcp[i] = '\0';
-	return (strcp);
+	dest[i] = '\0';
+	return (dest);
 }
-/*
-#include<stdio.h>
 
-int	main(void)
+/*int	main(void)
 {
-	char *s1 = "eunaoaguento maissssssssssssssss P";
-	printf("%s", ft_strdup(s1));
-	return (0);
-}
-*/
+	char	src[] = "matador";
+
+	printf("Minha: %s\n", ft_strdup(src));
+	printf("Ori: %s\n", strdup(src));
+}*/

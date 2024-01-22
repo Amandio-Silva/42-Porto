@@ -3,34 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 13:32:58 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/02 13:52:18 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/08/02 14:45:51 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/08/07 14:42:49 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_fibonacci(int index);
+#include <stdio.h>
 
 int	ft_fibonacci(int index)
 {
 	if (index < 0)
 		return (-1);
-	else if (index == 0)
-		return (0);
-	else if (index == 1)
-		return (1);
-	else
-		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
+	if (index < 2)
+		return (index);
+	return (ft_fibonacci(index - 2) + ft_fibonacci(index - 1));
 }
-/*
-#include<stdio.h>
-int	main(void)
+
+/*int	main(void)
 {
-	printf("%d \n", ft_fibonacci(2));
-	printf("%d \n", ft_fibonacci(0));
-	printf("%d \n", ft_fibonacci(1));
-	printf("%d \n", ft_fibonacci(10));
-	return (0);
-}
-*/
+	printf("O Fibo de 0: %d\n", ft_fibonacci(0));
+	printf("O Fibo de 1: %d\n", ft_fibonacci(1));
+	printf("O Fibo de 2: %d\n", ft_fibonacci(2));
+	printf("O Fibo de 3: %d\n", ft_fibonacci(3));
+	printf("O Fibo de 4: %d\n", ft_fibonacci(4));
+	printf("O Fibo de 5: %d\n", ft_fibonacci(5));
+	printf("O Fibo de 6: %d\n", ft_fibonacci(6));
+	printf("O Fibo de 7: %d\n", ft_fibonacci(7));
+}*/

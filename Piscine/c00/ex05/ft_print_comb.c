@@ -3,64 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <kfaustin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 09:29:43 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/22 18:49:53 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/19 11:00:20 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/19 11:22:17 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c);
-void	ft_commas(void);
-void	ft_logica(int a, int b, int c);
-void	ft_ft_print_comb(void);
-
 void	ft_putchar(char c)
 {
-	write (1, &c, 1);
-}
-
-void	ft_commas(void)
-{
-	ft_putchar(',');
-	ft_putchar(' ');
-}
-
-void	ft_logica(int a, int b, int c)
-{
-	while (a <= '7')
-	{
-		b = a + 1;
-		while (b <= '8')
-		{
-			c = b + 1;
-			while (c <= '9')
-			{
-				ft_putchar(a);
-				ft_putchar(b);
-				ft_putchar(c);
-				if (a != '7')
-				{
-					ft_commas();
-				}
-				c++;
-			}
-			b++;
-		}
-		a++;
-	}
+	write(1, &c, 1);
 }
 
 void	ft_print_comb(void)
 {
-	int	a;
-	int	b;
-	int	c;
+	int	i;
+	int	j;
+	int	k;
 
-	a = '0';
-	b = a + 1;
-	c = b + 1;
-	ft_logica(a, b, c);
+	i = 47;
+	while (++i < 56)
+	{
+		j = i;
+		while (++j < 57)
+		{
+			k = j;
+			while (++k < 58)
+			{
+				ft_putchar(i);
+				ft_putchar(j);
+				ft_putchar(k);
+				if (i < 55)
+					write(1, ", ", 2);
+			}
+		}
+	}
 }
+
+/*int	main(void)
+{
+	ft_print_comb();
+}*/

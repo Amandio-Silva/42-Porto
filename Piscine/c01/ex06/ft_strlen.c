@@ -3,24 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 16:05:21 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/23 16:18:21 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/20 10:55:47 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/20 11:00:41 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str);
+#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
-	int	contador;
+	int	i;
 
-	contador = 0;
-	while (*str)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		str++;
-		contador++;
+		i++;
 	}
-	return (contador);
+	return (i);
 }
+
+/*int	main(void)
+{
+	char str[] = "matador";
+
+	printf("A frase tem n:%d \n", ft_strlen(str));
+}*/

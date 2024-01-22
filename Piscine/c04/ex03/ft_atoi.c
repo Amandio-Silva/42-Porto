@@ -3,49 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 15:52:42 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/01 16:18:25 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/28 08:09:32 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/28 08:26:10 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str);
+#include <stdio.h>
 
 int	ft_atoi(char *str)
 {
-	int	num;
+	int	i;
 	int	sign;
+	int	res;	
 
+	res = 0;
 	sign = 1;
-	num = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n'
-		|| *str == '\v' || *str == '\f' || *str == 'r')
+	i = 0;
+	while ((str[i] > 7 && str[i] < 14) || str[i] == 32)
 	{
-		str++;
+		i++;
 	}
-	while (*str == '-' || *str == '+')
+	while (str[i] == 43 || str[i] == 45)
 	{
-		if (*str == '-')
-		{
-			sign *= -1;
-		}
-		str++;
+		if (str[i] == 45)
+			sign = sign * -1;
+		i++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (str[i] > 47 && str[i] < 58)
 	{
-		num = (num * 10) + (*str - 48);
-		str++;
+		res = (res * 10) + (str[i] - 48);
+		i++;
 	}
-	return (num * sign);
+	return (sign * res);
 }
-/*
-#include<stdio.h>
 
-int	main(void)
+/*int	main(void)
 {
-	char *str = " ---+--+-1234ab567";
-	printf("%d", ft_atoi(str));
-	return (0);
-}
-*/
+	printf("%d\n", ft_atoi("---+--+1234ab567"));
+}*/

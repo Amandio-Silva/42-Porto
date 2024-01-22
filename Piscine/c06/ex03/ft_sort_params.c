@@ -3,76 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 15:03:39 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/03 18:35:15 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/08/01 15:06:09 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/08/02 08:23:33 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
-		write (1, &str[i], 1);
+		write(1, &str[i], 1);
+		i++;
+	}
+	write(1, "\n", 1);
+}
+
+void	ft_swap(char **a, char **b)
+{
+	char	*temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0') && s1[i] == s2[i])
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}
+
+void	ft_printac(int ac, char **av)
+{
+	int	i;
+
+	i = 1;
+	while (ac > i)
+	{
+		ft_putstr(av[i]);
 		i++;
 	}
 }
 
-void	ft_print_vector(char **argv)
+int	main(int ac, char **av)
 {
-	while (*argv)
-	{
-		ft_putstr(*argv++);
-		write (1, "\n", 1);
-	}
-}
+	int	i;
+	int	j;
 
-int	ft_strcmp(char *str1, char *str2)
-{
-	while (*str1 && (*str1 == *str2))
+	i = 1;
+	while (i < ac - 1)
 	{
-		str1++;
-		str2++;
-	}
-	return (*str1 - *str2);
-}
-
-void	ft_sort_ord(char *tab[], int size)
-{
-	char	*temp;
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (j < size - i - 1)
+		j = 1;
+		while (j < ac - 1)
 		{
-			if (ft_strcmp(tab[j], tab[j + 1]) > 0)
+			if (ft_strcmp(av[j], av[j + 1]) > 0)
 			{
-				temp = tab[j];
-				tab[j] = tab[j + 1];
-				tab[j + 1] = temp;
+				ft_swap(&av[j], &av[j + 1]);
 			}
 			j++;
 		}
 		i++;
 	}
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc > 1)
-	{
-		ft_sort_ord(argv + 1, argc - 1);
-		ft_print_vector(argv + 1);
-	}
+	ft_printac(ac, av);
 	return (0);
 }

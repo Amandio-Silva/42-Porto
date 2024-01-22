@@ -3,28 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 15:49:33 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/24 18:17:18 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/20 10:26:21 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/20 10:53:42 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-
-void	ft_putstr(char *str);
-void	ft_putchar(char c);
-
-void	ft_putchar(char c)
-{
-	write (1, &c, 1);
-}
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		ft_putchar(*str);
-		str++;
+		write(1, &str[i], 1);
+		i++;
 	}
 }
+
+/*int	main(void)
+{
+	char	str[] = "O matador e lindo!";
+
+	ft_putstr(str);
+}*/

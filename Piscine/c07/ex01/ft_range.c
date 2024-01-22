@@ -3,56 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 13:10:43 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/10 13:37:59 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/08/09 07:52:06 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/08/09 07:59:32 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-//#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int	*ft_range(int min, int max)
 {
-	int	*mat;
+	int	*matrix;
 	int	i;
-	int	tamanho;
+	int	size;
 
-	tamanho = max - min;
+	i = 0;
+	size = max - min;
 	if (min >= max)
 		return (NULL);
-	mat = (int *)malloc(tamanho * sizeof(int));
-	if (!mat)
+	matrix = (int *)malloc(sizeof(int) * (size + 1));
+	if (!matrix)
 		return (NULL);
-	i = 0;
-	while (min < max)
+	while (i < size)
 	{
-		mat[i] = min;
-		min++;
+		matrix[i] = min;
 		i++;
+		min++;
 	}
-	return (mat);
+	return (matrix);
 }
-/*
-#include<stdio.h>
-int	main(void)
+
+/*int	main(void)
 {
-	int	min;
-	int	max;
-	int	i;
+	int	min = -14;
+	int	max = 20;
+	int	size = max - min;
+	int	i = 0;
+	int	*a = ft_range(min, max);
 
-	i = 0;
-	min = -25;
-	max = 10;
-	int *mat;
-
-	mat = ft_range(min, max);
-	while (i < max - min)
+	while (i < size)
 	{
-		printf("%d", mat[i]);
+		printf("%d ", a[i]);
 		i++;
 	}
 	return (0);
-}
-*/
+}*/

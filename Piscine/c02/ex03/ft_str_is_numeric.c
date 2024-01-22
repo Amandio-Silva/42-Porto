@@ -3,24 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/25 13:35:21 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/25 14:05:31 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/23 11:11:53 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/23 11:23:24 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_numeric(char *str);
+#include <stdio.h>
 
 int	ft_str_is_numeric(char *str)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (!(*str >= '0' && *str <= '9'))
+		if (str[i] > 47 && str[i] < 58)
 		{
-			return (0);
+			i++;
 		}
-	str++;
+		else
+			return (0);
 	}
 	return (1);
 }
+
+/*int	main(void)
+{
+	char	str[] = "1241241562369";
+	char	str1[] = "177695safasf124214";
+	char	str2[] = "";
+
+	printf("str: %d\n", ft_str_is_numeric(str));
+	printf("str1: %d\n", ft_str_is_numeric(str1));
+	printf("str2: %d\n", ft_str_is_numeric(str2));
+}*/

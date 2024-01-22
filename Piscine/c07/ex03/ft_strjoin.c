@@ -3,107 +3,90 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 15:06:58 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/10 15:08:31 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/08/09 08:14:51 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/08/09 08:33:12 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int	ft_strlen(char *str)
 {
 	int	i;
-
+	
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
 		i++;
 	}
 	return (i);
 }
 
-int	ft_lenstrs(int size, char **strs, char *sep)
+int	ft_strlen_total(char **str, char *sep, int size)
 {
 	int	i;
-	int	comp;
+	int	len_total;
+	int	len_sep;
 
 	i = 0;
-	comp = 0;
+	len_total = 0;
+	len_sep = ft_strlen(sep);
 	while (i < size)
 	{
-		comp += ft_strlen(strs[i]);
+		len_total = len_total + ft_strlen(str[i]);
+		len_total = len_total + len_sep;
 		i++;
 	}
-	comp += ft_strlen(sep) * (size - 1);
-	return (comp);
-}
-
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	return (dest);
+	len_total = len_total - len_sep;
+	return (len_total);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	char	*str;
-	char	*temp;
-	int		num1;
+	char	*s1;
+	int	i;
+	int	j;
+	int	c;
 
-	num1 = 0;
+	s1 = malloc(sizeof(char) * (ft_strlen_total(strs, sep, size) + 1));
+	i = 0;
+	c = 0;
 	if (size == 0)
-		return ((char *)malloc(sizeof(char)));
-	str = (char *)malloc(sizeof(char) * (ft_lenstrs(size, strs, sep) + 1));
-	if (!str)
-		return (0);
-	temp = str;
-	while (num1 < size)
+		return (malloc(sizeof(strs)));
+	while (i < size)
 	{
-		ft_strcpy(temp, strs[num1]);
-		temp += ft_strlen(strs[num1]);
-		if (num1 < size -1)
-		{
-			ft_strcpy(temp, sep);
-			temp += ft_strlen(sep);
-		}
-		num1++;
+		j = 0;
+		while (strs[i][j] != '\0')
+			s1[c++] = strs[i][j++];
+		j = 0;
+		while (sep[j] != '\0' && i != (size - 1))
+			s1[c++] = sep[j++];
+		i++;
 	}
-	*temp = '\0';
-	return (str);
+	s1[c] = '\0';
+	return (s1);
 }
-/*#include <stdio.h>
-int	main(int argc, char **argv)
+
+int	main(void)
 {
-
-	int	size;
-	char	*sep;
 	char	**strs;
-	char	*str;
+	char	*separator;
+	char	*result;
+	int	size;
 
-	(void)argc;
-	(void)argv;
-	strs = (char**)malloc(sizeof(strs) * 5);
-	strs[0] = "Chopin";
-	strs[1] = "000";
-	strs[2] = "Mahler";
-	strs[3] = "2323";
-	strs[4] = "Beethoven";
-	sep = "+-+";
-	size = 0;
-	while (size < 6)
-	{
-		str = ft_strjoin(size, strs, sep);
-		printf("%d: %s\n", size, str);
-		free(str);
-		size++;
-	}
-}*/
+	size = 3;
+	strs = malloc(3 * sizeof(char *));
+	strs[0] = malloc(sizeof(char) * (5 + 1));
+	strs[1] = malloc(sizeof(char) * (7 + 1));
+	strs[2] = malloc(sizeof(char) * (13 + 1));
+	strs[0] = "Hello";
+	strs[1] = "friend,";
+	strs[2] = "you are funny";
+	separator = "_";
+	result = ft_strjoin(size, strs, separator);
+	printf("%s\n", result);
+	free(result);
+}

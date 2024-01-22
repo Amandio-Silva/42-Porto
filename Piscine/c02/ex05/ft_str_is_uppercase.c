@@ -3,24 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/25 17:33:12 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/25 18:28:19 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/24 09:07:53 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/24 14:08:28 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str);
+#include <stdio.h>
 
 int	ft_str_is_uppercase(char *str)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (!(*str >= 'A' && *str <= 'Z'))
+		if (str[i] > 64 && str[i] < 91)
 		{
-			return (0);
+			i++;
 		}
-	str++;
+		else
+			return (0);
 	}
 	return (1);
 }
+
+/*int	main(void)
+{
+	char	str[] = "asfsafqwrehre";
+	char	str1[] = "ASFASF";
+	char	str2[] = "124214124";
+	char	str3[] = "%#%^DSGDSG ";
+	char	str4[] = "";
+
+	printf("%d\n", ft_str_is_uppercase(str));
+	printf("%d\n", ft_str_is_uppercase(str1));
+	printf("%d\n", ft_str_is_uppercase(str2));
+	printf("%d\n", ft_str_is_uppercase(str3));
+	printf("%d\n", ft_str_is_uppercase(str4));
+}*/

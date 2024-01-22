@@ -3,18 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <kfaustin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 16:40:41 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/22 18:28:55 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/19 09:10:14 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/19 09:22:20 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c);
-
 void	ft_putchar(char c)
 {
-	write (1, &c, 1);
+	write(1, &c, 1);
 }
+
+/*int	main(void)
+{
+	ft_putchar('a');
+	ft_putchar('\n');
+}*/

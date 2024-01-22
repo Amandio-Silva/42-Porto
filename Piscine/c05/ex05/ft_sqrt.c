@@ -3,41 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 14:14:48 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/03 13:53:33 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/08/03 09:32:36 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/08/03 11:46:38 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb);
+#include <stdio.h>
 
 int	ft_sqrt(int nb)
 {
-	unsigned int	i;
+	long	i;
 
 	i = 0;
-	if (nb <= 0)
+	if (nb < 1)
 		return (0);
-	while ((i * i) < (unsigned int)nb)
+	while (i * i < nb)
+	{
 		i++;
-	if (i * i == (unsigned int)nb)
+	}
+	if (i * i == nb)
 		return (i);
 	else
 		return (0);
 }
-/*
-#include<stdio.h>
-#include<limits.h>
 
-int	main(void)
+/*int	main(void)
 {
-	printf("%d \n", ft_sqrt(-1));
-	printf("%d \n", ft_sqrt(-0));
-	printf("%d \n", ft_sqrt(0));
-	printf("%d \n", ft_sqrt(145689564));
-	printf("%d \n", ft_sqrt(81));
-	printf("%d \n", ft_sqrt(INT_MAX-10));
-	return (0);
-}
-*/
+	printf("Raiz de 0: %d\n", ft_sqrt(0));
+	printf("Raiz de 1: %d\n", ft_sqrt(1));
+	printf("Raiz de 3: %d\n", ft_sqrt(3));
+	printf("Raiz de 4: %d\n", ft_sqrt(4));
+	printf("Raiz de 6: %d\n", ft_sqrt(6));
+	printf("Raiz de 8: %d\n", ft_sqrt(8));
+	printf("Raiz de 9: %d\n", ft_sqrt(9));
+	printf("Raiz de 10: %d\n", ft_sqrt(10));
+	printf("Raiz de 12: %d\n", ft_sqrt(12));
+}*/

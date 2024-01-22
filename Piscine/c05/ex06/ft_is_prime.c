@@ -3,40 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 16:06:38 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/02 17:12:46 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/08/03 11:47:08 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/08/07 14:44:37 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb);
+#include <stdio.h>
 
 int	ft_is_prime(int nb)
 {
 	int	i;
 
 	i = 2;
-	if (nb <= 1)
+	if (nb < 2)
+	{
 		return (0);
-	while (i <= (nb / 2))
+	}
+	while (i <= (nb / i))
 	{
 		if (nb % i == 0)
+		{
 			return (0);
+		}
 		i++;
 	}
 	return (1);
 }
-/*
-#include<stdio.h>
-int	main(void)
+
+/*int	main(void)
 {
-	printf("%d \n", ft_is_prime(0));
-	printf("%d \n", ft_is_prime(1));
-	printf("%d \n", ft_is_prime(-1));
-	printf("%d \n", ft_is_prime(100));
-	printf("%d \n", ft_is_prime(101));
-	printf("%d \n", ft_is_prime(20911));
-	return (0);
-}
-*/
+	printf("O 2 sera prime: %d\n", ft_is_prime(2));
+	printf("O 3 sera prime: %d\n", ft_is_prime(3));
+	printf("O 4 sera prime: %d\n", ft_is_prime(4));
+	printf("O 5 sera prime: %d\n", ft_is_prime(5));
+	printf("O 7 sera prime: %d\n", ft_is_prime(7));
+	printf("O 11 sera prime: %d\n", ft_is_prime(11));
+	printf("O 13 sera prime: %d\n", ft_is_prime(13));
+	printf("O 15 sera prime: %d\n", ft_is_prime(15));
+}*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 09:27:13 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/28 10:43:53 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/25 08:05:08 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/25 08:12:23 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	ft_char_is_printable(char c)
-{
-	if (c >= 32 && c <= 127)
-		return (1);
-	else
-		return (0);
-}
-
 void	ft_putstr_non_printable(char *str)
 {
 	int	i;
@@ -32,14 +24,21 @@ void	ft_putstr_non_printable(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (ft_char_is_printable(str[i]) == 1)
-			ft_putchar(str[i]);
-		else
+		if (str[i] < 32 || str[i] == 127)
 		{
 			ft_putchar('\\');
 			ft_putchar("0123456789abcdef"[str[i] / 16]);
 			ft_putchar("0123456789abcdef"[str[i] % 16]);
 		}
+		else
+			ft_putchar(str[i]);
 		i++;
 	}
 }
+
+/*int	main(void)
+{
+	char	str[] = "Coucou\ntu vas bien ?";
+
+	ft_putstr_non_printable(str);
+}*/

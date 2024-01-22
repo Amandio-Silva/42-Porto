@@ -3,57 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 15:23:03 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/30 12:03:19 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/27 11:57:25 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/31 10:32:20 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-unsigned int	ft_strlen(char *str);
-
-unsigned int	ft_strlen(char *str)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
+#include <stdio.h>
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	i;
-	unsigned int	j;
+	unsigned int	a;
+	unsigned int	b;
+	unsigned int	res;
 
-	i = ft_strlen(dest);
-	if (size <= i)
+	a = 0;
+	b = 0;
+	res = 0;
+	while (dest[a] != '\0')
+		a++;
+	while (src[res] != '\0')
+		res++;
+	if (size <= a)
+		res = res + size;
+	else
+		res = res + a;
+	while (src[b] && (a + 1) < size)
 	{
-		return (size + ft_strlen(src));
+		dest[a] = src[b];
+		a++;
+		b++;
 	}
-	j = 0;
-	while (src[j] && size > i + 1)
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (ft_strlen(dest) + ft_strlen(&src[j]));
+	dest[a] = '\0';
+	return (res);
 }
-/*
-#include<stdio.h>
-int	main(void)
+
+/*int	main(void)
 {
-	char dest[60] = "queijo_";
-	char src[] = "com_goiabada!";
-	unsigned int	n = 21;
+	char	dest[] = "matador ";
+	char	src[] = "sexy";
+	unsigned int size = 5;
 
-	printf("%u", ft_strlcat(dest, src, n));
-	return (0);
-}
-*/
+	printf("Minha: %d \n", ft_strlcat(dest, src, size));
+}*/

@@ -3,41 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 12:32:08 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/10/02 12:32:12 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/31 13:58:32 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/31 14:27:30 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb);
+#include <stdio.h>
 
 int	ft_iterative_factorial(int nb)
 {
-	int	fatorial;
+	int	res;
 
-	fatorial = nb;
-	if (nb < 0 || nb > 12)
-	{
+	if (nb < 0)
 		return (0);
-	}
-	if (nb == 0)
+	res = 1;
+	while (nb > 0)
 	{
-		fatorial++;
+		res = res * nb;
+		nb--;
 	}
-	while (nb > 1)
-	{
-		fatorial *= --nb;
-	}
-	return (fatorial);
+	return (res);
 }
-/*
-#include<stdio.h>
-int	main(void)
+
+/*int	main(void)
 {
-	printf("%d \n", ft_iterative_factorial(1));
-	printf("%d \n", ft_iterative_factorial(0));
-	printf("%d \n", ft_iterative_factorial(12));
-	return (0);
-}
-*/
+	printf("Factorial de 0: %d\n", ft_iterative_factorial(0));
+	printf("Factorial de 1: %d\n", ft_iterative_factorial(1));
+	printf("Factorial de 2: %d\n", ft_iterative_factorial(2));
+	printf("Factorial de 4: %d\n", ft_iterative_factorial(4));
+	printf("Factorial de 6: %d\n", ft_iterative_factorial(6));
+	printf("Factorial de -1: %d\n", ft_iterative_factorial(-1));
+}*/

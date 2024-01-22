@@ -3,27 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 16:20:06 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/24 18:27:22 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/20 11:01:07 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/20 11:17:21 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_rev_int_tab(int *tab, int size);
+#include <stdio.h>
+
+void	ft_swap(int *a, int *b)
+{
+	int	temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
 
 void	ft_rev_int_tab(int *tab, int size)
 {
-	int	contador;
-	int	temp;
+	int	i;
 
-	contador = 0;
-	while (contador <= size - (contador + 1))
+	i = 0;
+	while (size > i)
 	{
-		temp = tab[contador];
-		tab[contador] = tab[size - (contador + 1)];
-		tab[size - (contador + 1)] = temp;
-		contador++;
+		ft_swap(&tab[i], &tab[size - 1]);
+		i++;
+		size--;
 	}
-	contador = 0;
 }
+
+/*int	main(void)
+{
+	int	tab[] = {0, 1, 2, 3, 4, 5};
+	int	size = 6;
+	int	i = 0;
+
+	ft_rev_int_tab(tab, size);
+	while (i < size)
+	{
+		printf("%d", tab[i]);
+		i++;
+	}
+}*/

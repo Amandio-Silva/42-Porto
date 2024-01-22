@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush01.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: migmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/25 16:20:32 by migmarti          #+#    #+#             */
-/*   Updated: 2022/09/25 16:25:31 by migmarti         ###   ########.fr       */
+/*   Created: 2023/07/23 10:00:43 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/23 10:08:59 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+void	ft_putchar(char c); 
 
-void	ft_print_logic_line(int x, char startchar, char midchar, char endchar)
+void	ft_print(int x, int esq, int meio, int dir)
 {
-	ft_putchar(startchar);
-	while ((x - 1) > 1)
+	ft_putchar(esq);
+	while (x > 2)
 	{
-		ft_putchar(midchar);
+		ft_putchar(meio);
 		x--;
 	}
 	if (x > 1)
 	{
-		ft_putchar(endchar);
+		ft_putchar(dir);
 	}
 	ft_putchar('\n');
 }
@@ -31,14 +31,16 @@ void	rush(int x, int y)
 {
 	if (x > 0 && y > 0)
 	{
-		ft_print_logic_line(x, 'A', 'B', 'A');
+		ft_print(x, '/', '*', '\\');
 		y--;
 		while (y > 1)
 		{
-			ft_print_logic_line(x, 'B', ' ', 'B');
+			ft_print(x, '*', ' ', '*');
 			y--;
 		}
 		if (y > 0)
-			ft_print_logic_line(x, 'C', 'B', 'C');
+		{
+			ft_print(x, '\\', '*', '/');
+		}
 	}
 }

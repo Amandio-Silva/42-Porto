@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 10:27:23 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/29 11:06:25 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/27 07:58:33 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/27 08:27:13 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src);
+#include <stdio.h>
+#include <string.h>
 
 char	*ft_strcat(char *dest, char *src)
 {
@@ -18,29 +19,27 @@ char	*ft_strcat(char *dest, char *src)
 	int	j;
 
 	i = 0;
-	while (dest[i])
+	while (dest[i] != '\0')
 	{
 		i++;
 	}
 	j = 0;
-	while (src[j])
+	while (src[j] != '\0')
 	{
-		dest[i] = src[j];
-		i++;
+		dest[i + j] = src[j];
 		j++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	dest[i + j] = '\0';
+	return (dest); 
 }
-/*
-#include<stdio.h>
 
-int	main(void)
+/*int	main(void)
 {
-	char dest[] = "Hello ";
-	char *src = "world!";
+	char dest[15] = "matador ";
+	char src[5] = "sexy";
+	char dest1[22] = "matador ";
+	char src1[14] = "coisinha sexy";
 
-	printf("%s", ft_strcat(dest, src));
-	return (0);
-}
-*/
+	printf("Minha: %s\n", ft_strcat(dest, src));
+	printf("Orig: %s\n", strcat(dest1, src1));
+}*/

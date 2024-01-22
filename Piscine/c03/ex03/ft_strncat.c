@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 11:04:55 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/29 11:25:44 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/27 08:32:07 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/27 09:58:23 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb);
+#include <stdio.h>
+#include <string.h>
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
@@ -18,30 +19,28 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	unsigned int	j;
 
 	i = 0;
-	while (dest[i])
+	while (dest[i] != '\0')
 	{
 		i++;
 	}
 	j = 0;
 	while (src[j] != '\0' && j < nb)
 	{
-		dest[i] = src[j];
-		i++;
+		dest[i + j] = src[j];
 		j++;
 	}
-	dest[i] = '\0';
+	dest[i + j] = '\0';
 	return (dest);
 }
-/*
-#include<stdio.h>
-#include<string.h>
-int	main(void)
+
+/*int	main(void)
 {
-	char dest[50] = "I love: ";
-	char src[] = "chopin and mahler s2";
-	unsigned int	n = 19;
-	
-	printf("%s", ft_strncat(dest, src, n));
-	return (0);
-}
-*/
+	char	dest[20] = "matador ";
+	char	src[9] = "sexy boy";
+	char	dest1[20] = "matador ";
+	char	src1[20] = "sexy boy";
+	unsigned int nb = 4;
+
+	printf("%s \n", ft_strncat(dest, src, nb));
+	printf("%s \n", strncat(dest1, src1, nb));	
+}*/

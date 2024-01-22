@@ -3,16 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <kfaustin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 09:00:57 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/23 11:55:18 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/20 08:13:52 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/20 08:18:23 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_ft(int *nbr);
+#include <stdio.h>
 
 void	ft_ft(int *nbr)
 {
 	*nbr = 42;
 }
+
+/*int	main(void)
+{
+	int	i;
+
+	i = 24;
+	printf("Antes: %d\n", i);
+	ft_ft(&i);
+	printf("Depois: %d\n", i);
+}*/

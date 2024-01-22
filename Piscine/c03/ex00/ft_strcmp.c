@@ -3,33 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfaustin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleal-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 09:40:19 by kfaustin          #+#    #+#             */
-/*   Updated: 2022/09/30 12:04:57 by kfaustin         ###   ########.fr       */
+/*   Created: 2023/07/25 13:53:17 by joleal-b          #+#    #+#             */
+/*   Updated: 2023/07/25 13:57:00 by joleal-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2);
+#include <stdio.h>
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	while (*s1 == *s2 && (*s1 || *s2))
+	int	i;
+
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0') && s1[i] == s2[i])
 	{
-		s1++;
-		s2++;
+		i++;
 	}
-	return (*s1 - *s2);
+	return (s1[i] - s2[i]);
 }
-/*
-#include<stdio.h>
- 
-int     main(void)
+
+/*int	main(void)
 {
-        char s1[] = "aaa";
-        char s2[] = "ab";
- 
-        printf("%d", ft_strcmp(s1, s2));
-        return(0);
-}
-*/
+	char	s1[] = "maTador";
+	char	s2[] = "matador";
+
+	printf("%d\n", ft_strcmp(s1, s2));
+}*/
