@@ -42,6 +42,7 @@
 ### Rushs e exames:
 | -| -    | Notas         | 
 | :--:| :---: |  :----------:|
+| Rush | Rush 00 | [100%](/EXAM01) | 
 | Exame| Exame 01 | [solution](/EXAM01) | 
 | Exame| Exame 00 | [solution](/EXAM00) | 
 | Exame| Exame 02 | [solution](/EXAM02) | 
