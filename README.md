@@ -32,8 +32,8 @@
 | C | C05 | [80%](/Piscine/c05)| 
 | C | C06 | [100%](/Piscine/c06) | 
 | C | C07 |  [100%](/Piscine/c07)| 
-| C | C08 | [100%](/Piscine/c08) |
-| C | C09 |  [100%](/Piscine/c09)| 
+| C | C08 | [Não Fiz](/Piscine/c08) |
+| C | C09 |  [Não Fiz](/Piscine/c09)| 
 | C | C10 | [Não Fiz](/Piscine/c10) | 
 | C | C11 | [Não Fiz](/Piscine/c11) | 
 | C | C12 |  [Não Fiz](/Piscine/c12) | 
